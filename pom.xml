@@ -31,6 +31,8 @@
         <persistence-api.version>1.0.2</persistence-api.version>
         <junit.version>4.12</junit.version>
         <hibernate-jpa-2.1-api.version>1.0.0.Final</hibernate-jpa-2.1-api.version>
+        <springfox-swagger-ui.version>2.8.0</springfox-swagger-ui.version>
+        <springfox-swagger2.version>2.8.0</springfox-swagger2.version>
     </properties>
 
     <dependencies>
@@ -108,6 +110,18 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+        </dependency>
+
+        <!-- Swagger -->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>${springfox-swagger2.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>${springfox-swagger-ui.version}</version>
         </dependency>
 
     </dependencies>

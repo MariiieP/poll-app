@@ -5,8 +5,10 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @EnableWebSecurity
+@EnableSwagger2
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
@@ -25,6 +27,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .withUser("user").password("{noop}password").roles("USER");
     }
 
+
+    /*
+    *
+    *
+    @Bean
+	public Docket api() {
+		return new Docket(DocumentationType.SWAGGER_2).select()
+				.apis(RequestHandlerSelectors
+						.basePackage("net.guides.springboot2.springboot2swagger2.controller"))
+				.paths(PathSelectors.regex("/.*"))
+				.build().apiInfo(apiEndPointsInfo());
+	}
+
+	private ApiInfo apiEndPointsInfo() {
+
+		return new ApiInfoBuilder().title("Spring Boot REST API")
+				.description("Employee Management REST API")
+				.contact(new Contact("Ramesh Fadatare", "www.javaguides.net", "ramesh24fadatare@gmail.com"))
+				.license("Apache 2.0")
+				.licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
+				.version("1.0.0")
+				.build();
+	}
+    *
+    * */
 }
 
 
