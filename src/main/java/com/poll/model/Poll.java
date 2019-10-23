@@ -12,7 +12,7 @@ public class Poll {
     @Id
     private Long id;
 
-    private String language;
+    private Long id_language;
     private Integer option;
 
 
@@ -27,8 +27,8 @@ public class Poll {
         this.id = id;
     }
 
-    public String getLanguage() {
-        return language;
+    public Long getLanguage() {
+        return id_language;
     }
 
     @Override
@@ -37,17 +37,17 @@ public class Poll {
         if (o == null || getClass() != o.getClass()) return false;
         Poll poll = (Poll) o;
         return Objects.equals(id, poll.id) &&
-                Objects.equals(language, poll.language) &&
+                Objects.equals(id_language, poll.id_language) &&
                 Objects.equals(option, poll.option);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, language, option);
+        return Objects.hash(id, id_language, option);
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
+    public void setLanguage(Long id_language) {
+        this.id_language = id_language;
     }
 
     public Integer getOption() {
