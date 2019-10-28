@@ -28,7 +28,7 @@
 # Idea
 /.idea
 /.idea/
-/vsu-poll-app/
+vsu-poll-app/
 *.iml
 *.iws
 *.ipr
