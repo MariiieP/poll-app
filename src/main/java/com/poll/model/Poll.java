@@ -1,6 +1,7 @@
 package com.poll.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.sun.tools.internal.xjc.Language;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
