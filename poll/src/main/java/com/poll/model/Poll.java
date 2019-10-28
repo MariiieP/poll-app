@@ -1,20 +1,28 @@
 package com.poll.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.hibernate.annotations.GenericGenerator;
+
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "poll")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Poll {
 
     @Id
+    @GeneratedValue(generator = "increment")
+    @GenericGenerator(name= "increment", strategy= "increment")
+    @Column(name = "id", nullable = false)
     private Long id;
 
-    private String language;
+    @Column(name = "option")
     private Integer option;
 
+    @ManyToOne(fetch = FetchType.LAZY,  cascade = {CascadeType.MERGE, CascadeType.PERSIST}) //optional=false
+    @JoinColumn(name = "id_language", nullable = false)
+    private Language language;
 
     public Poll() {
     }
@@ -27,8 +35,20 @@ public class Poll {
         this.id = id;
     }
 
-    public String getLanguage() {
+    public Language getLanguage() {
         return language;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
+    }
+
+    public Integer getOption() {
+        return option;
+    }
+
+    public void setOption(Integer option) {
+        this.option = option;
     }
 
     @Override
@@ -46,15 +66,5 @@ public class Poll {
         return Objects.hash(id, language, option);
     }
 
-    public void setLanguage(String language) {
-        this.language = language;
-    }
 
-    public Integer getOption() {
-        return option;
-    }
-
-    public void setOption(Integer option) {
-        this.option = option;
-    }
 }

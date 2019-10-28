@@ -1,14 +1,12 @@
 package com.poll.service;
 
 import com.poll.excpection.EmployeeNotFoundException;
-import com.poll.excpection.ResourceNotFoundException;
 import com.poll.model.Poll;
 
 import com.poll.repository.PollRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collection;
 import java.util.List;
 
 @Service
@@ -26,11 +24,18 @@ public class PollService {
                 .orElseThrow(() -> new EmployeeNotFoundException(id));
     }
 
-    public Poll save(Poll poll) {
-        return pollRepository.save(poll);
+    public Poll addPoll(Poll poll) {
+        Poll savedPoll = pollRepository.saveAndFlush(poll);
+
+        return savedPoll;
     }
 
-    public void remove(long id) {
+    public void delete(long id) {
         pollRepository.deleteById(id);
     }
+
+    public Poll editPoll(Poll poll){
+        return pollRepository.saveAndFlush(poll);
+    }
+
 }
