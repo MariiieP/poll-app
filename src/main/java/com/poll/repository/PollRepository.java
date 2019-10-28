@@ -2,13 +2,12 @@ package com.poll.repository;
 
 
 import com.poll.model.Poll;
-
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 import java.util.Optional;
-
+/*
 public interface PollRepository extends CrudRepository<Poll,Long> {
 
     @Override
@@ -17,7 +16,8 @@ public interface PollRepository extends CrudRepository<Poll,Long> {
     @Override
     List<Poll> findAll();
 
-//    @Override
-//    void deleteById(Long aLong);
+}
+*/
 
+public interface PollRepository extends JpaRepository<Poll,Long> {
 }
