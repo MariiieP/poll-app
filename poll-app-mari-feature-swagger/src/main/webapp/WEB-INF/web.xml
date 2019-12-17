@@ -1,0 +1,4 @@
+<servlet-mapping>
+    <servlet-name>jsp</servlet-name>
+    <url-pattern>/WEB-INF/view/*</url-pattern>
+</servlet-mapping>
